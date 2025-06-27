@@ -1,9 +1,9 @@
 <?php
-require_once 'includes/init.php';
+require_once __DIR__ . '/../includes/init.php';
 
 // Nếu đã đăng nhập, chuyển hướng về trang chủ
 if (isset($_SESSION['user_id'])) {
-    header('Location: index.php');
+    header('Location: /index.php');
     exit;
 }
 
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php include 'includes/header.php'; ?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 
 <div class="container py-5">
     <div class="row justify-content-center">
@@ -197,4 +197,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<?php include 'includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>

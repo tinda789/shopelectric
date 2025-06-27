@@ -4,10 +4,10 @@
                     <div class="col-12 text-center">
                         <p class="mb-0">© 2025 ShopElectrics. Tất cả các quyền được bảo lưu.</p>
                         <p class="mb-0 small text-muted">
-                            <a href="/about" class="text-muted text-decoration-none me-2">Giới thiệu</a> | 
-                            <a href="/contact" class="text-muted text-decoration-none mx-2">Liên hệ</a> | 
-                            <a href="/privacy" class="text-muted text-decoration-none mx-2">Chính sách bảo mật</a> | 
-                            <a href="/terms" class="text-muted text-decoration-none ms-2">Điều khoản sử dụng</a>
+                            <a href="/about.php" class="text-muted text-decoration-none me-2">Giới thiệu</a> | 
+                            <a href="/contact.php" class="text-muted text-decoration-none mx-2">Liên hệ</a> | 
+                            <a href="/privacy.php" class="text-muted text-decoration-none mx-2">Chính sách bảo mật</a> | 
+                            <a href="/terms.php" class="text-muted text-decoration-none ms-2">Điều khoản sử dụng</a>
                         </p>
                     </div>
                 </div>

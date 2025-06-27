@@ -201,15 +201,7 @@ function is_admin() {
     return isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
 }
 
-// Hàm chuyển hướng
-function redirect($url) {
-    if (!headers_sent()) {
-        header("Location: $url");
-        exit();
-    }
-    echo "<script>window.location.href='$url';</script>";
-    exit();
-}
+// Hàm chuyển hướng đã được chuyển sang functions.php
 
 // Hàm hiển thị thông báo
 function set_flash_message($type, $message) {

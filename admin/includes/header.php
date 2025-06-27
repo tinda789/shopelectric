@@ -5,7 +5,8 @@
 
 // Kiểm tra đăng nhập và quyền admin
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
-    header('Location: /login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']));
+    // Chuyển hướng về trang chủ shop nếu không phải admin
+    header('Location: /');
     exit();
 }
 ?>

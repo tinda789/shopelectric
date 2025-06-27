@@ -1,5 +1,11 @@
 <?php
-require_once 'includes/init.php';
+require_once __DIR__ . '/../includes/init.php';
+
+// Kiểm tra đăng nhập
+if (!isset($_SESSION['user_id'])) {
+    header('Location: /controllers/login.php');
+    exit;
+}
 
 // Lấy danh sách đơn hàng
 $stmt = $pdo->query("SELECT o.*, u.name as customer_name, os.name as status_name 
@@ -10,7 +16,7 @@ $stmt = $pdo->query("SELECT o.*, u.name as customer_name, os.name as status_name
 $orders = $stmt->fetchAll();
 ?>
 
-<?php include 'includes/header.php'; ?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 
 <div class="row">
     <div class="col-md-12">
@@ -50,4 +56,4 @@ $orders = $stmt->fetchAll();
     </div>
 </div>
 
-<?php include 'includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>

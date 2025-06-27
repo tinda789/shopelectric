@@ -1,9 +1,9 @@
 <?php
-require_once 'includes/init.php';
+require_once __DIR__ . '/../includes/init.php';
 
 // Lưu lại URL trước đó để chuyển hướng lại sau khi đăng nhập
-$redirect = $_SERVER['HTTP_REFERER'] ?? 'index.php';
-$login_url = 'login.php';
+$redirect = $_SERVER['HTTP_REFERER'] ?? '/index.php';
+$login_url = '/controllers/login.php';
 
 // Xử lý đăng xuất
 if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_GET['confirm'])) {

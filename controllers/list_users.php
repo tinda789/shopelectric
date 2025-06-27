@@ -1,5 +1,13 @@
 <?php
-require_once 'config/database.php';
+require_once __DIR__ . '/../includes/init.php';
+
+// Kiểm tra đăng nhập
+if (!isset($_SESSION['user_id'])) {
+    header('Location: /controllers/login.php');
+    exit;
+}
+
+require_once __DIR__ . '/../config/database.php';
 
 try {
     // Lấy danh sách người dùng

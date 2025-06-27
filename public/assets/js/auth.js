@@ -179,10 +179,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
 
-// Hàm tính độ mạnh mật khẩu
-function calculatePasswordStrength(password) {
+    // Hàm tính độ mạnh mật khẩu
+    function calculatePasswordStrength(password) {
     let score = 0;
     let feedback = [];
     

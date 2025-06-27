@@ -36,6 +36,11 @@ require_once __DIR__ . '/init.php';
             // Khởi tạo dropdown
             var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
             var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                // Kiểm tra xem dropdown đã được khởi tạo chưa
+                if (!dropdownToggleEl.hasAttribute('data-bs-toggle')) {
+                    dropdownToggleEl.setAttribute('data-bs-toggle', 'dropdown');
+                    dropdownToggleEl.setAttribute('aria-expanded', 'false');
+                }
                 return new bootstrap.Dropdown(dropdownToggleEl, {
                     autoClose: true
                 });
@@ -48,6 +53,16 @@ require_once __DIR__ . '/init.php';
             });
             
             // Xử lý sự kiện click cho dropdown trên mobile
+            document.querySelectorAll('.dropdown-toggle').forEach(function(element) {
+                element.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var dropdown = bootstrap.Dropdown.getInstance(this);
+                    if (!dropdown) {
+                        dropdown = new bootstrap.Dropdown(this);
+                    }
+                    dropdown.toggle();
+                });
+            });
             if (window.innerWidth <= 991.98) {
                 document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
                     toggle.addEventListener('click', function(e) {
@@ -142,7 +157,7 @@ require_once __DIR__ . '/init.php';
     <div class="container-fluid px-0">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
             <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                <a class="navbar-brand d-flex align-items-center" href="/index.php">
                     <i class="bi bi-laptop me-2"></i>
                     <span>ShopElectrics</span>
                 </a>
@@ -155,26 +170,26 @@ require_once __DIR__ . '/init.php';
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'index.php' ? ' active' : '' ?>" href="index.php">
+                            <a class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'index.php' ? ' active' : '' ?>" href="/index.php">
                                 <i class="bi bi-house-door me-1"></i> Trang chủ
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link<?= strpos($_SERVER['PHP_SELF'], 'products') !== false ? ' active' : '' ?>" 
-                               href="products.php">
+                               href="/controllers/products.php">
                                 <i class="bi bi-box me-1"></i> Sản phẩm
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link<?= strpos($_SERVER['PHP_SELF'], 'categories') !== false ? ' active' : '' ?>" 
-                               href="categories.php">
+                               href="/controllers/categories.php">
                                 <i class="bi bi-tags me-1"></i> Danh mục
                             </a>
                         </li>
                         <?php if (isset($_SESSION['user_id'])): ?>
                         <li class="nav-item">
                             <a class="nav-link<?= strpos($_SERVER['PHP_SELF'], 'orders') !== false ? ' active' : '' ?>" 
-                               href="orders.php">
+                               href="/controllers/orders.php">
                                 <i class="bi bi-cart-check me-1"></i> Đơn hàng
                             </a>
                         </li>
@@ -186,10 +201,11 @@ require_once __DIR__ . '/init.php';
                             <!-- Người dùng đã đăng nhập -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" 
-                                   id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                   id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                   data-bs-auto-close="outside">
                                     <i class="bi bi-person-circle me-1"></i>
                                     <span class="d-none d-md-inline">
-                                        <?= htmlspecialchars($_SESSION['first_name'] . ' ' . $_SESSION['last_name']) ?>
+                                        <?= htmlspecialchars(($_SESSION['first_name'] ?? '') . ' ' . ($_SESSION['last_name'] ?? '')) ?>
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
@@ -207,7 +223,7 @@ require_once __DIR__ . '/init.php';
                                     <?php endif; ?>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item text-danger" href="logout.php">
+                                        <a class="dropdown-item text-danger" href="/controllers/logout.php">
                                             <i class="bi bi-box-arrow-right me-2"></i> Đăng xuất
                                         </a>
                                     </li>
@@ -217,13 +233,13 @@ require_once __DIR__ . '/init.php';
                             <!-- Chưa đăng nhập -->
                             <li class="nav-item">
                                 <a class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'login.php' ? ' active' : '' ?>" 
-                                   href="login.php">
+                                   href="/controllers/login.php">
                                     <i class="bi bi-box-arrow-in-right me-1"></i> Đăng nhập
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'register.php' ? ' active' : '' ?>" 
-                                   href="register.php">
+                                   href="/controllers/register.php">
                                     <i class="bi bi-person-plus me-1"></i> Đăng ký
                                 </a>
                             </li>
