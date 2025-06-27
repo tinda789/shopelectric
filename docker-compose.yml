@@ -1,0 +1,48 @@
+leaversion: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: php-app
+    restart: unless-stopped
+    ports: ["8000:80"]
+    volumes: [".:/var/www/html"]
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+
+  db:
+    image: mysql:8.0
+    container_name: php-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shopelectrics
+      MYSQL_USER: user
+      MYSQL_PASSWORD: secret
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+      MYSQL_DEFAULT_CHARACTER_SET: utf8mb4
+    command: [
+      '--character-set-server=utf8mb4',
+      '--collation-server=utf8mb4_unicode_ci',
+      '--default-authentication-plugin=mysql_native_password',
+      '--sql-mode=NO_ENGINE_SUBSTITUTION'
+    ]
+    ports: ["3307:3306"]
+    volumes:
+      - "dbdata:/var/lib/mysql"
+      - "./docker/mysql/conf.d:/etc/mysql/conf.d"  # Thư mục chứa cấu hình tùy chỉnh
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    depends_on: [db]
+    ports: ["8080:80"]
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  dbdata:

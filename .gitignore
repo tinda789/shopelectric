@@ -1,0 +1,244 @@
+# Environment files
+.env
+.env.*.local
+!.env.example
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Logs
+*.log
+/storage/logs/*
+
+# Cache and compiled files
+/storage/framework/cache/*
+/storage/framework/views/*
+/storage/framework/sessions/*
+/bootstrap/cache/*
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+/public/storage
+/public/hot
+/public/js/
+/public/css/
+/public/mix-manifest.json
+
+# Testing
+/phpunit.xml
+.phpunit.result.cache
+
+# Debug
+.php_cs.cache
+.phpunit.result.cache
+
+# Local development
+Homestead.json
+Homestead.yaml
+Vagrantfile
+
+# Deployment
+/.fleet
+/.idea
+/.vscode
+*.sublime-*
+
+# Composer
+/composer.lock
+
+# NPM
+/package-lock.json
+
+# Environment files (except example)
+!.env.example
+
+# Uploaded files
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# Debugbar
+/debugbar/
+
+# IDE
+.idea
+.vscode
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local env files
+.env.local
+.env.*.local
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+public_html/storage
+public_html/hot
+
+# Laravel 5 & Lumen specific with changed public path
+public_html/public/storage
+public_html/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public_html/public/storage
+/public_html/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/storage
+/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/public/storage
+/public/hot
